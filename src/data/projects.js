@@ -29,6 +29,10 @@ export const projects = [
     accent: "from-rose-100 via-orange-50 to-amber-100",
     iconClass: "bg-rose-100 text-rose-600",
     link: "https://fiadh.onrender.com",
+    images: [
+        "/images/projects/fiadh/dashboard.png",
+        "/images/projects/fiadh/income-expenses.png",
+    ],
   },
   {
     project: "smart-land-health-monitoring",
@@ -49,6 +53,10 @@ export const projects = [
     accent: "from-emerald-100 via-teal-50 to-sky-100",
     iconClass: "bg-emerald-100 text-emerald-700",
     link: "https://github.com/mollyckane/smart-land-monitor",
+    images: [
+        "/images/projects/smart-land-monitor/dashboard.png",
+        "/images/projects/smart-land-monitor/naming-service.png",
+    ],
   },
   {
     project: "insou",
@@ -69,5 +77,8 @@ export const projects = [
     accent: "from-violet-100 via-fuchsia-50 to-sky-100",
     iconClass: "bg-violet-100 text-violet-700",
     link: null,
+    images: [
+        null,
+    ],
   },
 ];

@@ -1,3 +1,4 @@
+import "@/styles/projects.css";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
