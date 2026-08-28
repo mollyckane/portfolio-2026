@@ -64,24 +64,10 @@ const NeuralGlow = () => {
         noise = max(.0, noise - .4);
         noise *= (1. - length(vUv - .5));
 
-        // === Pastel white / pink / purple / blue ===
-        vec3 white  = vec3(0.5, 0.97, .10);
-        vec3 pink   = vec3(0.98, 0.80, 0.90);
-        vec3 purple = vec3(0.80, 0.72, 0.95);
-        vec3 blue   = vec3(0.78, 0.88, 1.00);
-
-        // scroll mixes between pink and blue
-        float s = 0.5 + 0.5 * sin(u_scroll_progress * 2.0);
-        vec3 base = mix(pink, blue, s);
-
-        // time slowly pulls in purple + white highlights
-        float tMix = 0.5 + 0.5 * cos(u_time * 0.0004);
-        vec3 accent = mix(purple, white, tMix);
-
-        color = mix(base, accent, 0.1);  // 0.6 keeps it soft
+        // === Pale pink only ===
+        color = vec3(1.0, 0.82, 0.89);
         color *= noise;
-        // ============================================
-
+        // =======================
         gl_FragColor = vec4(color, noise);
     }
   `;
