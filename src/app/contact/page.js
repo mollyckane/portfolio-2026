@@ -59,7 +59,7 @@ export default function ContactPage() {
 
     return (
         <main className="min-h-screen bg-stone-50 px-6 text-stone-800 sm:px-10">
-            <section className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-30 z-10">
+            <section className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center py-30 z-10">
                 <p className="text-xs font-medium uppercase tracking-[0.28em] text-stone-500">
                     Contact
                 </p>
