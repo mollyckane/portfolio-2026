@@ -2,11 +2,9 @@ import Link from "next/link";
 
 const navigationItems = [
     { label: "Home", href: "/" },
-    { label: "Decks", href: "/decks" },
-    { label: "Journal", href: "/journal" },
-    { label: "Habits", href: "/habits" },
-    { label: "Planner", href: "/planner" },
-    { label: "Sound garden", href: "/sound-garden" },
+    { label: "About Me", href: "/about" },
+    { label: "Projects", href: "/projects" },
+    { label: "Contact Me", href: "/contact" },
 ];
 
 export default function Navigation() {
