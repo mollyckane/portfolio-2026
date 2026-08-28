@@ -45,7 +45,7 @@ const BlobCursor = ({ blobType = 'circle', fillColor = '#fegefe' }) => {
   }, [api]);
 
   return (
-    <div className="blob-container" style={{ zIndex: 1 }}>
+    <div className="blob-container" style={{ zIndex: 20 }}>
       <svg style={{ position: 'absolute', width: 0, height: 0 }}>
         <filter id="blob">
           <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="30" />
