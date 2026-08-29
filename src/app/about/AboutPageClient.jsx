@@ -12,15 +12,13 @@ import {
     faLanguage,
 } from "@fortawesome/free-solid-svg-icons";
 
+const highlight =
+    "text-pink-500 underline decoration-dashed font-bold";
+
 const copy = {
     en: {
         eyebrow: "Junior software developer · visual artist",
         heading: "I’m a developer with an artist’s eye for detail.",
-        paragraphs: [
-            "I’m Molly Kane, a junior software developer and visual artist. I like building things from the inside out: following a bug until it makes sense, connecting the moving parts of an application and making the finished experience feel considered on the surface.",
-            "I’m most at home where problem-solving and design overlap. I enjoy full-stack development with experience with JavaScript, Node.js, Express, SQL databases, authentication and APIs—but I also care about how a project looks, moves and behaves in someone’s hands. My background in fine art influences how I think about composition, colour, interaction and the small visual choices that make a site feel intentional.",
-            "I’m curious, committed and persistent. I like learning how systems work and I’m increasingly exploring creative code, 3D/WebGL and mobile-first, accessible web experiences.",
-        ],
         cta: "Let’s work together",
         toggleLabel: "Léigh as Gaeilge",
         toggleAria: "Read this page in Irish",
@@ -29,11 +27,6 @@ const copy = {
     ga: {
         eyebrow: "Forbróir bogearraí sóisearach · ealaíontóir amhairc",
         heading: "Is forbróir mé le súil ealaíontóra do na sonraí.",
-        paragraphs: [
-            "Is mise Molly Kane, forbróir bogearraí sóisearach agus ealaíontóir amhairc. Is maith liom rudaí a thógáil ón taobh istigh amach: fadhb a leanúint go dtí go dtuigim í, na codanna gluaiste d’fheidhmchlár a nascadh agus an taithí chríochnaithe a dhéanamh smaointeach ar an dromchla.",
-            "Is fearr liom an áit ina dtrasnaíonn fadhbréiteach agus dearadh. Bainim taitneamh as forbairt iomlán stack le taithí i JavaScript, Node.js, Express, bunachair sonraí SQL, fíordheimhniú agus APIs—ach is cuma liom freisin faoin chuma, faoin ngluaiseacht agus faoin iompar a bhíonn ag tionscadal i lámha duine. Cuireann mo chúlra sna mínealaíona bunús le mo chuid smaointeoireachta faoi chomhdhéanamh, dath, idirghníomhaíocht agus na roghanna amhairc beaga a dhéanann suíomh a bhraitheann bheartaithe.",
-            "Táim fiosrach, tiomanta agus buanseasmhach. Is maith liom foghlaim faoin chaoi a n-oibríonn córais agus táim ag dul i ngleic níos mó le cód cruthaitheach, 3D/WebGL agus taithí ghréasáin atáin dírithe ar fhóin agus inrochtana.",
-        ],
         cta: "Déanaimis obair le chéile",
         toggleLabel: "Read in English",
         toggleAria: "Read this page in English",
@@ -89,7 +82,7 @@ export default function AboutContent() {
                                 type="button"
                                 onClick={() => setLang(lang === "en" ? "ga" : "en")}
                                 aria-label={t.toggleAria}
-                                className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white px-3 py-1.5 text-xs font-medium text-stone-600 transition hover:-translate-y-0.5 hover:border-pink-300 hover:text-pink-600 hover:shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2"
+                                className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-stone-300 bg-white px-3 py-1.5 text-xs font-medium text-stone-600 transition hover:-translate-y-0.5 hover:border-pink-300 hover:text-pink-600 hover:shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2"
                             >
                                 <FontAwesomeIcon icon={faLanguage} aria-hidden="true" />
                                 {t.toggleLabel}
@@ -101,9 +94,39 @@ export default function AboutContent() {
                         </h1>
 
                         <div className="mt-6 max-w-xl space-y-4 text-base leading-7 text-stone-600 sm:text-md">
-                            {t.paragraphs.map((paragraph, index) => (
-                                <p key={index}>{paragraph}</p>
-                            ))}
+                            {lang === "en" ? (
+                                <p>
+                                    I’m Molly Kane, a junior{" "}
+                                    <span className={highlight}>software developer</span> and{" "}
+                                    <span className={highlight}>visual artist</span>. I like
+                                    building things from the inside out: following a bug until
+                                    it makes sense, connecting the moving parts of an
+                                    application and making the finished experience feel
+                                    considered on the surface.
+                                </p>
+                            ) : (
+                                <p>
+                                    Is mise Molly Ní Chatháin, {" "}
+                                    <span className={highlight}>forbróir bogearraí</span> sóisearach agus{" "}
+                                    <span className={highlight}>ealaíontóir amhairc</span>. Is
+                                    maith liom rudaí a thógáil ón taobh istigh amach: fadhb a
+                                    leanúint go dtí go dtuigim í, na codanna gluaiste
+                                    d’fheidhmchlár a nascadh agus an taithí chríochnaithe a
+                                    dhéanamh smaointeach ar an dromchla.
+                                </p>
+                            )}
+
+                            <p>
+                                {lang === "en"
+                                    ? "I’m most at home where problem-solving and design overlap. I enjoy full-stack development with experience with JavaScript, Node.js, Express, SQL databases, authentication and APIs—but I also care about how a project looks, moves and behaves in someone’s hands. My background in fine art influences how I think about composition, colour, interaction and the small visual choices that make a site feel intentional."
+                                    : "Is fearr liom nuair a thrasnaíonn fadhbréiteach agus dearadh. Bainim taitneamh as forbairt 'stack' iomlán le taithí i JavaScript, Node.js, Express, bunachair sonraí SQL, fíordheimhniú agus APIs—ach is cuma liom freisin  faoin ngluaiseacht agus faoin iompar a bhíonn ag tionscadal i lámha duine. Cuireann mo chúlra sna mínealaíona bunús le mo chuid smaointeoireachta faoi chomhdhéanamh, dath, idirghníomhaíocht agus na roghanna amhairc beaga a dhéanann suíomh a bhraitheann bheartaithe."}
+                            </p>
+
+                            <p>
+                                {lang === "en"
+                                    ? "I’m curious, committed and persistent. I like learning how systems work and I’m increasingly exploring creative code, 3D/WebGL and mobile-first, accessible web experiences."
+                                    : "Táim fiosrach, tiomanta agus buanseasmhach. Is maith liom foghlaim faoin chaoi a n-oibríonn córais agus táim ag dul i ngleic níos mó le cód cruthaitheach, 3D/WebGL agus taithí ghréasáin atáin dírithe ar fhóin agus inrochtana."}
+                            </p>
                         </div>
 
                         <Link
