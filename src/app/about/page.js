@@ -52,7 +52,7 @@ export default function AboutPage() {
 
                         <div className="mt-6 max-w-xl space-y-4 text-base leading-7 text-stone-600 sm:text-md">
                             <p>
-                                I’m Molly Kane, a junior software developer and visual artist. 
+                                I’m Molly Kane, a junior <span className="text-pink-500 underline decoration-dashed font-bold">software developer</span> and <span className="text-pink-500 underline decoration-dashed font-bold">visual artist</span>. 
                                 I like building things from the inside out: following a bug until it makes sense, 
                                 connecting the moving parts of an application and making the finished experience 
                                 feel considered on the surface.
