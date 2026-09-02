@@ -32,7 +32,7 @@ export default function ProjectsPage() {
                 <p className="mt-6 max-w-2xl text-base leading-7 text-stone-600 sm:text-lg">
                     A selection of full-stack applications, distributed systems work and
                     interactive experiments. Each project taught me something different
-                    about designing, building, debugging, and connecting a system’s moving
+                    about designing, building, debugging and connecting a system’s moving
                     parts.
                 </p>
 
@@ -122,7 +122,7 @@ export default function ProjectsPage() {
                         </p>
                         <p className="mt-1 text-sm text-stone-500">
                             I’m currently exploring creative code, accessible mobile-first
-                            design, and more experimental web interactions.
+                            design and more experimental web interactions.
                         </p>
                     </div>
 
