@@ -25,9 +25,9 @@ const copy = {
         basedInLabel: "Based in",
     },
     ga: {
-        eyebrow: "Forbróir bogearraí sóisearach · ealaíontóir amhairc",
+        eyebrow: "Forbróir bogearraí sóisearach · ealaíontóir",
         heading: "Is forbróir mé le súil ealaíontóra do na sonraí.",
-        cta: "Déanaimis obair le chéile",
+        cta: "Ar mhaith leat oibriú liom?",
         toggleLabel: "Read in English",
         toggleAria: "Read this page in English",
         basedInLabel: "Lonnaithe i",
@@ -48,7 +48,7 @@ const details = [
         label: { en: "What I build with", ga: "Cad leis a dhéanaim rudaí" },
         text: {
             en: "JavaScript, Node.js, Java, MySQL, gRPC, HTML and CSS—plus Linux as the highly customisable environment where I like to learn and make things.",
-            ga: "JavaScript, Node.js, Java, MySQL, gRPC, HTML agus CSS—chomh maith le Linux mar an timpeallacht atá go mór inoiriúnaithe ina dtaitníonn liom foghlaim agus rudaí a dhéanamh.",
+            ga: "JavaScript, Node.js, Java, MySQL, gRPC, HTML agus CSS—chomh maith le Linux mar an timpeallacht atá go mór inoiriúnaithe ina dtaitníonn liom foghlaim agus rudaí a chruthú.",
         },
         icon: faCode,
         accent: "bg-sky-50 text-sky-600",
@@ -111,21 +111,21 @@ export default function AboutContent() {
                                     <span className={highlight}>ealaíontóir amhairc</span>. Is
                                     maith liom rudaí a thógáil ón taobh istigh amach: fadhb a
                                     leanúint go dtí go dtuigim í, na codanna gluaiste
-                                    d’fheidhmchlár a nascadh agus an taithí chríochnaithe a
-                                    dhéanamh smaointeach ar an dromchla.
+                                    d’fheidhmchlár a ceangal agus go mbraitheann an taithí chríochnaithe iomlán
+                                    ar an dromchla.
                                 </p>
                             )}
 
                             <p>
                                 {lang === "en"
                                     ? "I’m most at home where problem-solving and design overlap. I enjoy full-stack development with experience with JavaScript, Node.js, Express, SQL databases, authentication and APIs—but I also care about how a project looks, moves and behaves in someone’s hands. My background in fine art influences how I think about composition, colour, interaction and the small visual choices that make a site feel intentional."
-                                    : "Is fearr liom nuair a thrasnaíonn fadhbréiteach agus dearadh. Bainim taitneamh as forbairt 'stack' iomlán le taithí i JavaScript, Node.js, Express, bunachair sonraí SQL, fíordheimhniú agus APIs—ach is cuma liom freisin  faoin ngluaiseacht agus faoin iompar a bhíonn ag tionscadal i lámha duine. Cuireann mo chúlra sna mínealaíona bunús le mo chuid smaointeoireachta faoi chomhdhéanamh, dath, idirghníomhaíocht agus na roghanna amhairc beaga a dhéanann suíomh a bhraitheann bheartaithe."}
+                                    : "Is fearr liom nuair a thrasnaíonn fadhbréiteach agus dearadh. Bainim taitneamh as forbairt 'stack' iomlán le taithí i JavaScript, Node.js, Express, bunachair sonraí SQL, fíordheimhniú agus APIs—ach is cuma liom freisin faoin ngluaiseacht agus faoin iompar a bhíonn ag tionscadal i lámha duine. Cuireann mo chúlra sna mínealaíona bunús le mo chuid smaointeoireachta faoi chomhdhéanamh, dath, idirghníomhaíocht agus na roghanna amhairc beaga a dhéanann suíomh a bhraitheann bheartaithe."}
                             </p>
 
                             <p>
                                 {lang === "en"
                                     ? "I’m curious, committed and persistent. I like learning how systems work and I’m increasingly exploring creative code, 3D/WebGL and mobile-first, accessible web experiences."
-                                    : "Táim fiosrach, tiomanta agus buanseasmhach. Is maith liom foghlaim faoin chaoi a n-oibríonn córais agus táim ag dul i ngleic níos mó le cód cruthaitheach, 3D/WebGL agus taithí ghréasáin atáin dírithe ar fhóin agus inrochtana."}
+                                    : "Táim fiosrach, tiomanta agus buanseasmhach. Is maith liom ag foghlaim faoin chaoi a n-oibríonn córais agus táim ag dul i ngleic níos mó le cód cruthaitheach, 3D/WebGL agus taithí ghréasáin atáin dírithe ar fhóin agus inrochtana."}
                             </p>
                         </div>
 
