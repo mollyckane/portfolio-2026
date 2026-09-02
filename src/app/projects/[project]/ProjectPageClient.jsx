@@ -17,64 +17,6 @@ import { missyVoya } from "../../fonts";
 import FiadhLeaves from "@/components/effects/FiadhLeaves";
 import WobblyBorder from "@/components/effects/WobblyBorder";
 
-const overviewDetails = {
-    fiadh: [
-        {
-            label: "The problem",
-            text: "Independent artists often manage contracts, invoices and accounts across scattered spreadsheets and note apps. Fiadh brings that into one bilingual workspace.",
-            icon: faSeedling,
-        },
-        {
-            label: "Why the name",
-            text: "Fiadh is the Irish word for deer, and carries the sense of wild and free, how I think about being an artist, and a quiet symbol of Irish heritage.",
-            icon: faLanguage,
-        },
-        {
-            label: "The stack",
-            text: "Node.js, Express and MySQL on the back end, with the front end as plain HTML, CSS and JavaScript. JWT and bcrypt handle authentication, Chart.js powers the dashboard.",
-            icon: faFont,
-        },
-        {
-            label: "Bilingual by design",
-            text: "Translations run on i18n, with files I wrote myself rather than machine translation. As a native Irish speaker, that mattered given how few software tools treat Irish as a first-class language.",
-            icon: faVialCircleCheck,
-        },
-        {
-            label: "What I'd do differently",
-            text: "I hadn't learned React yet when I built this, so the front end is vanilla JavaScript manipulating the DOM directly. Rebuilding it in React is the first thing on my list.",
-            icon: faArrowsRotate,
-        },
-    ],
-};
-
-const overviewIntro = {
-    fiadh: "Working on Fiadh taught me how much authentication and data modelling decisions ripple outward, and pushed me to think more like the people using it: an artist who wants to spend five minutes on admin, not fifty, in a language that actually feels like their own.",
-};
-
-const projectTheme = {
-    fiadh: {
-        heroFontClass: missyVoya.className,
-        headingSize: "text-7xl",
-        vars: {
-            "--fiadh-bg": "#e5e9f4",
-            "--fiadh-surface": "#fffdf8",
-            "--fiadh-brand": "#213a31",
-            "--fiadh-text-primary": "#355c4e",
-            "--fiadh-text-secondary": "#507756",
-            "--fiadh-text-paragraph": "#564f49",
-            "--fiadh-text-muted": "#605d5d",
-            "--fiadh-border": "#6c806f",
-            "--fiadh-focus": "#ca604e",
-        },
-        textClass: "text-[color:var(--fiadh-text-primary)]",
-        accentText: "text-[color:var(--fiadh-focus)]",
-        headingClass: "text-[color:var(--fiadh-brand)]",
-        paragraphClass: "text-[color:var(--fiadh-text-paragraph)]",
-        mutedClass: "text-[color:var(--fiadh-text-secondary)]",
-        borderClass: "border-[color:var(--fiadh-border)]",
-    },
-};
-
 function useFontReveal() {
     const [showDecorative, setShowDecorative] = useState(true);
     return [showDecorative, setShowDecorative];
@@ -95,7 +37,7 @@ export default function ProjectPageClient({ params }) {
     const [heroScroll, setHeroScroll] = useState(0);
     const heroRef = useRef(null);
 
-    const theme = projectKey ? projectTheme[projectKey] : null;
+    const theme = selectedProject?.theme ?? null;
     const [showDecorative, setShowDecorative] = useFontReveal();
 
     useEffect(() => {
@@ -212,7 +154,7 @@ export default function ProjectPageClient({ params }) {
                     <div className="mx-auto w-full max-w-4xl">
                         <Link
                             href="/projects"
-                            className={`project-animate text-sm font-medium transition ${theme ? theme.mutedClass : "text-stone-500 hover:text-rose-600"}`}
+                            className={`project-animate text-sm font-medium transition ${theme ? `${theme.mutedClass} ${theme.hoverAccent || "hover:text-rose-600"}` : "text-stone-500 hover:text-rose-600"}`}
                         >
                             ← Back to projects
                         </Link>
@@ -296,19 +238,19 @@ export default function ProjectPageClient({ params }) {
                     Overview
                 </h2>
 
-                {overviewIntro[selectedProject.project] && (
+                {selectedProject.overviewIntro && (
                     <p
                         className={`project-animate project-animate-delay-1 mt-6 max-w-2xl text-lg leading-8 ${theme ? theme.paragraphClass : "text-stone-700"}`}
                     >
-                        {overviewIntro[selectedProject.project]}
+                        {selectedProject.overviewIntro}
                     </p>
                 )}
 
-                {overviewDetails[selectedProject.project] ? (
+                {selectedProject.overviewDetails ? (
                     <div
                         className={`project-animate project-animate-delay-2 mt-10 overflow-hidden rounded-3xl border shadow-sm ${theme ? `${theme.borderClass} bg-[color:var(--fiadh-surface)]/70` : "border-stone-200/80 bg-white/70"}`}
                     >
-                        {overviewDetails[selectedProject.project].map((item, index) => (
+                        {selectedProject.overviewDetails.map((item, index) => (
                             <div key={item.label}>
                                 <div className="flex gap-4 px-5 py-5 sm:px-6">
                                     <div
@@ -330,7 +272,7 @@ export default function ProjectPageClient({ params }) {
                                     </div>
                                 </div>
 
-                                {index < overviewDetails[selectedProject.project].length - 1 && (
+                                {index < selectedProject.overviewDetails.length - 1 && (
                                     <div className={`mx-5 border-t sm:mx-6 ${theme ? theme.borderClass : "border-stone-200/80"}`} />
                                 )}
                             </div>
@@ -407,12 +349,18 @@ export default function ProjectPageClient({ params }) {
                     What&apos;s next
                 </h2>
 
-                <div className={`project-animate project-animate-delay-1 mt-6 space-y-4 ${theme ? theme.paragraphClass : "text-stone-700"}`}>
-                    <p>
-                        Describe future improvements, features you&apos;d add,
-                        or how this project fits into your broader practice.
+                {selectedProject.nextSteps ? (
+                    <p className={`project-animate project-animate-delay-1 mt-6 ${theme ? theme.paragraphClass : "text-stone-600"}`}>
+                        {selectedProject.nextSteps}
                     </p>
-                </div>
+                ): (
+                    <div className={`project-animate project-animate-delay-1 mt-6 space-y-4 ${theme ? theme.paragraphClass : "text-stone-700"}`}>
+                        <p>
+                            Pending
+                        </p>
+                    </div>
+                )}
+                
 
                 <div className="project-animate project-animate-delay-2 mt-8">
                     <Link
